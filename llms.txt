@@ -1,0 +1,24 @@
+# AuthRight
+
+> Identity & Access Security Decision Layer for AI coding agents.
+
+AuthRight is the decision layer between your codebase and implementation. AI coding agents (Cursor, Codex) use AuthRight to understand identity signals, record security decisions, and verify contracts before OpenSpec implements changes.
+
+## Documentation
+
+- [Overview](/docs)
+- [Getting started](/docs/getting-started)
+- [CLI reference](/docs/cli)
+- [Agent commands](/docs/agents) — Cursor `/auth-*` and Codex `$authright-*`
+- [OpenSpec peer workflow](/docs/openspec-peer)
+
+## Quick start
+
+```bash
+pnpm install
+pnpm build
+pnpm exec authright init --tools cursor,codex
+authright scan
+```
+
+AuthRight does not write application source. It prepares accepted identity-security decisions for an external OpenSpec apply step.

@@ -1,1 +1,0 @@
-# authright-harness.github.io
