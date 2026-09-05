@@ -1,24 +1,37 @@
-# AuthRight
+# AuthRight Harness
 
 > Identity & Access Security Decision Layer for AI coding agents.
 
-AuthRight is the decision layer between your codebase and implementation. AI coding agents (Cursor, Codex) use AuthRight to understand identity signals, record security decisions, and verify contracts before OpenSpec implements changes.
+AuthRight Harness is the decision layer between your codebase and implementation. AI coding agents (Cursor, Codex, Claude Code) use AuthRight Harness to understand identity signals, record security decisions, and verify contracts before OpenSpec implements changes.
 
 ## Documentation
 
-- [Overview](/docs)
+Start here:
+
+- [Docs home](/docs) — pick your path
+- [Installation](/docs/installation) — `npm install -g @authright/cli@latest`
 - [Getting started](/docs/getting-started)
-- [CLI reference](/docs/cli)
-- [Agent commands](/docs/agents) — Cursor `/auth-*` and Codex `$authright-*`
-- [OpenSpec peer workflow](/docs/openspec-peer)
+- [How commands work](/docs/how-commands-work)
+
+Then as needed:
+
+- [Workflows](/docs/workflows) · [Examples](/docs/examples) · [OpenSpec](/docs/openspec)
+- [Commands](/docs/commands) · [CLI](/docs/cli) · [Agents](/docs/agents)
+- [Overview](/docs/overview) · [Implementation peers](/docs/impl)
+- [FAQ](/docs/faq)
 
 ## Quick start
 
 ```bash
-pnpm install
-pnpm build
-pnpm exec authright init --tools cursor,codex
+npm install -g @authright/cli@latest
+authright --version
+cd your-project
+authright init --tools cursor,codex,claude
 authright scan
 ```
 
-AuthRight does not write application source. It prepares accepted identity-security decisions for an external OpenSpec apply step.
+Public loop: `explore|doctor` → `change` → `change <id> --analyze` → `--ready` → `to-openspec` → `review`.
+
+Product chat commands use colon form (`/auth:scan`, `/auth:explore`, …). Handoff: `/auth:to-openspec`.
+
+AuthRight Harness does not write application source. It prepares accepted identity-security decisions for an external OpenSpec apply step.
