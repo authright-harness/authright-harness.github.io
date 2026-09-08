@@ -1,0 +1,62 @@
+1:"$Sreact.fragment"
+2:I[39833,["/_next/static/chunks/2za0eueekczd6.js","/_next/static/chunks/0gie3r9c4yys9.js"],""]
+4:I[3203,["/_next/static/chunks/2za0eueekczd6.js","/_next/static/chunks/0gie3r9c4yys9.js"],"OutletBoundary"]
+5:"$Sreact.suspense"
+9:I[3203,["/_next/static/chunks/2za0eueekczd6.js","/_next/static/chunks/0gie3r9c4yys9.js"],"ViewportBoundary"]
+a:I[3203,["/_next/static/chunks/2za0eueekczd6.js","/_next/static/chunks/0gie3r9c4yys9.js"],"MetadataBoundary"]
+b:I[43256,["/_next/static/chunks/2za0eueekczd6.js","/_next/static/chunks/0gie3r9c4yys9.js"],"IconMark"]
+d:I[42032,["/_next/static/chunks/2za0eueekczd6.js","/_next/static/chunks/0gie3r9c4yys9.js"],"default"]
+e:I[2963,["/_next/static/chunks/2za0eueekczd6.js","/_next/static/chunks/0gie3r9c4yys9.js"],"default"]
+11:I[4730,["/_next/static/chunks/2za0eueekczd6.js","/_next/static/chunks/0gie3r9c4yys9.js"],"RootProvider"]
+:HL["/_next/static/chunks/1_-zt1l5a41z0.css","style"]
+3:T65b,# AuthRight Harness
+
+> Identity & Access Security Decision Layer for AI coding agents.
+
+AuthRight Harness is the decision layer between your codebase and implementation. AI coding agents (Cursor, Codex, Claude Code) use AuthRight Harness to understand identity signals, record security decisions, and verify contracts before OpenSpec implements changes.
+
+## Documentation
+
+Start here:
+
+- [Docs home](/docs) — pick your path
+- [Installation](/docs/installation) — `npm install -g @authright/cli@latest`
+- [Getting started](/docs/getting-started)
+- [How commands work](/docs/how-commands-work)
+
+Then as needed:
+
+- [Workflows](/docs/workflows) · [Examples](/docs/examples) · [OpenSpec](/docs/openspec)
+- [Commands](/docs/commands) · [CLI](/docs/cli) · [Agents](/docs/agents)
+- [Overview](/docs/overview) · [Implementation peers](/docs/impl)
+- [FAQ](/docs/faq)
+
+## Quick start
+
+```bash
+npm install -g @authright/cli@latest
+authright --version
+cd your-project
+authright init --tools cursor,codex,claude
+authright scan
+```
+
+Public loop: `explore|doctor` → `change` → `change <id> --analyze` → `--ready` → `to-openspec` → `review`.
+
+Product intent names use colon form (`/auth:scan`, `/auth:explore`, …). Handoff: `/auth:to-openspec`. Cursor registers hyphen slashes from the filename (`/auth-scan`); Claude Code registers colon slashes from `.claude/commands/auth/` (`/auth:scan`); Codex skills use `$authright-scan`. `authright init` prints the installed hosts’ forms.
+
+AuthRight Harness does not write application source. It prepares accepted identity-security decisions for an external OpenSpec apply step.
+8:X
+10:X
+10:C
+0:{"buildId":"whHor_s5dxY4zixuTkw9b","data":[{"rsc":["$","$1","c",{"children":[["$","main",null,{"className":"llms-page","children":[["$","p",null,{"className":"llms-page-nav","children":[["$","$L2",null,{"href":"/","children":"AuthRight Harness"}]," · ",["$","a",null,{"href":"/llms.txt","children":"raw llms.txt"}]]}],["$","pre",null,{"className":"llms-page-body","children":"$3"}]]}],null,["$","$L4",null,{"children":["$","$5",null,{"name":"Next.MetadataOutlet","children":"$@6"}]}]]}],"isPartial":"$@7","staleTime":"$8","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$L9",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$La",null,{"children":["$","$5",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"llms.txt · AuthRight Harness"}],["$","meta","1",{"name":"description","content":"Machine-readable documentation for AI coding agents."}],["$","meta","2",{"name":"application-name","content":"AuthRight Harness"}],["$","link","3",{"rel":"icon","href":"/favicon.ico?favicon.35v_5lgtjl6gj.ico","sizes":"16x16","type":"image/x-icon"}],["$","link","4",{"rel":"icon","href":"/brand/mark.png","type":"image/png"}],["$","link","5",{"rel":"apple-touch-icon","href":"/apple-icon.png","type":"image/png"}],["$","$Lb","6",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":"$@c","staleTime":"$8","varyParams":null},{"rsc":["$","$1","c",{"children":[null,["$","$Ld",null,{"parallelRouterKey":"children","template":["$","$Le",null,{}]}]]}],"isPartial":"$@f","staleTime":"$8","varyParams":"$10"},{"rsc":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1_-zt1l5a41z0.css","precedence":"next"}],["$","script","script-0",{"src":"/_next/static/chunks/2za0eueekczd6.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/0gie3r9c4yys9.js","async":true}]],["$","html",null,{"lang":"en","suppressHydrationWarning":true,"className":"source_serif_4_4c20a0d6-module__DFeh6W__variable ibm_plex_sans_dadc9ecb-module__LL43Qa__variable","children":["$","body",null,{"className":"flex min-h-screen flex-col","children":["$","$L11",null,{"theme":{"enabled":false},"children":["$","$Ld",null,{"parallelRouterKey":"children","template":["$","$Le",null,{}],"notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":"$L12"}]],[]]}]}]}]}]]}],"isPartial":"$@13","staleTime":"$8","varyParams":null}],"isUpgradeableISRFallback":false,"a":"$@14","rootVaryParams":null,"needsRuntimeRequest":"$@15"}
+6:null
+12:["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]
+8:300
+15:true
+8:C
+14:0
+c:"$undefined"
+f:"$undefined"
+13:"$undefined"
+7:"$undefined"
