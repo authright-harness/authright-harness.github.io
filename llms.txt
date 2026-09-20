@@ -30,8 +30,8 @@ authright init --tools cursor,codex,claude
 authright scan
 ```
 
-Public loop: `explore|doctor` → `change` → `change <id> --analyze` → `--ready` → `to-openspec` → `review`.
+Public loop: `scan` → `doctor?` → `change` → `change <id> --analyze` → `--ready` → `to-openspec` → `review`.
 
-Product intent names use colon form (`/auth:scan`, `/auth:explore`, …). Handoff: `/auth:to-openspec`. Cursor registers hyphen slashes from the filename (`/auth-scan`); Claude Code registers colon slashes from `.claude/commands/auth/` (`/auth:scan`); Codex skills use `$authright-scan`. `authright init` prints the installed hosts’ forms.
+Product intent names use colon form (`/auth:scan`, `/auth:change`, `/auth:doctor`, `/auth:review`). Handoff: `/auth:to-openspec`. Cursor registers hyphen slashes from the filename (`/auth-scan`); Claude Code registers colon slashes from `.claude/commands/auth/` (`/auth:scan`); Codex skills use `$authright-scan`. `authright init` prints the installed hosts’ forms.
 
 AuthRight Harness does not write application source. It prepares accepted identity-security decisions for an external OpenSpec apply step.
