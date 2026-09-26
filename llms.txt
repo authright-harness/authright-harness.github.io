@@ -30,8 +30,8 @@ authright init --tools cursor,codex,claude
 authright scan
 ```
 
-Public loop: `scan` → `doctor?` → `change` → `change <id> --analyze` → `--ready` → `to-openspec` → `review`.
+Public loop: `scan` → `doctor?` → `explore` | `change` → `change <id> --analyze` → (explore: Agenda HITL | change: plan → `--set` → `--confirm-plan`) → `--ready` → `request-match` → `to-openspec` → `review`.
 
-Product intent names use colon form (`/auth:scan`, `/auth:change`, `/auth:doctor`, `/auth:review`). Handoff: `/auth:to-openspec`. Cursor registers hyphen slashes from the filename (`/auth-scan`); Claude Code registers colon slashes from `.claude/commands/auth/` (`/auth:scan`); Codex skills use `$authright-scan`. `authright init` prints the installed hosts’ forms.
+Product intent names use colon form (`/auth:scan`, `/auth:explore`, `/auth:change`, `/auth:doctor`, `/auth:review`, `/auth:request-match`). Dual Decide: explore = HITL recommend-and-choose; change = auto-plan. Handoff: `/auth:to-openspec`. Cursor registers hyphen slashes from the filename (`/auth-scan`); Claude Code registers colon slashes from `.claude/commands/auth/` (`/auth:scan`); Codex skills use `$authright-scan`. `authright init` prints the installed hosts’ forms.
 
 AuthRight Harness does not write application source. It prepares accepted identity-security decisions for an external OpenSpec apply step.
