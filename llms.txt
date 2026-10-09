@@ -18,6 +18,7 @@ Then as needed:
 - [Workflows](/docs/workflows) · [Examples](/docs/examples) · [OpenSpec](/docs/openspec) · [Agent Plan-mode](/docs/impl/agent-plan)
 - [Commands](/docs/commands) · [CLI](/docs/cli) · [Agents](/docs/agents)
 - [Overview](/docs/overview) · [Implementation](/docs/impl)
+- [IAM Ontology](/ontology) — interactive graph of the shipped concept model
 - [FAQ](/docs/faq)
 
 ## Quick start
@@ -30,8 +31,8 @@ authright init --tools cursor,codex,claude
 authright scan
 ```
 
-Public loop: `scan` → pick `explore` or `change` → on that Auth Change record: `--analyze` → (explore: Agenda HITL | change: plan → `--set` → `--confirm-plan`) → `--ready` → `request-match` → `to-openspec` | `to-plan` → `review`. `doctor` is a peer command for findings, including before you pick explore or change — not a step between scan and that fork.
+Public loop: `scan` → pick `explore` or `change` → on that Auth Change record: `--analyze` → (explore: Agenda HITL | change: plan → `--set` → `--confirm-plan`) → `--ready` → `request-match` → `to-openspec` | `to-plan` → `review`. `doctor` is a peer command: it reads **application source** and writes a clear risk report at `.authright/diagnosis/report.md` (it does not redesign identity). You can run it before explore or change. `/auth:doc` is different—it writes a summary of **decisions** under `.authright/docs/`.
 
-`/auth:explore` and `/auth:change` are two Decide commands — pick one. Explore is HITL recommend-and-choose; change is auto-plan. `/auth:to-openspec` and `/auth:to-plan` are two handoff commands — pick one. Product intent names use colon form (`/auth:scan`, `/auth:explore`, `/auth:change`, `/auth:request-match`, `/auth:to-openspec`, `/auth:to-plan`, `/auth:review`, `/auth:doctor`). Cursor registers hyphen slashes from the filename (`/auth-scan`); Claude Code registers colon slashes from `.claude/commands/auth/` (`/auth:scan`); Codex skills use `$authright-scan`. `authright init` prints the installed hosts’ forms.
+`/auth:explore` and `/auth:change` are two Decide commands — pick one. Explore is interactive recommend-and-choose; change is auto-plan. `/auth:to-openspec` and `/auth:to-plan` are two handoff commands — pick one. Product intent names use colon form (`/auth:scan`, `/auth:explore`, `/auth:change`, `/auth:request-match`, `/auth:to-openspec`, `/auth:to-plan`, `/auth:review`, `/auth:doc`, `/auth:doctor`). Cursor registers hyphen slashes from the filename (`/auth-scan`); Claude Code registers colon slashes from `.claude/commands/auth/` (`/auth:scan`); Codex skills use `$authright-scan`. `authright init` prints the installed hosts’ forms.
 
 AuthRight Harness does not write application source. It prepares accepted identity-security decisions for OpenSpec or Agent Plan-mode handoff (pick one).
