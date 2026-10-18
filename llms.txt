@@ -2,33 +2,35 @@
 
 > Identity & Access Security Decision Layer for AI coding agents.
 
-AuthRight Harness is the decision layer between your codebase and implementation. AI coding agents (Cursor, Codex, Claude Code) use AuthRight Harness to understand identity signals, record security decisions, and verify contracts before you hand work to coding agents via OpenSpec or Agent Plan-mode.
+AuthRight Harness is the decision layer between your codebase and implementation. Two surfaces share that layer. The CLI plus Cursor, Codex, or Claude Code runs the full loop. [AuthRight Studio](/studio-docs) is the local browser host: auto-plan Decide and an IAM source-of-truth document. Studio does not run explore, doctor, request-match, to-openspec, or to-plan.
 
 ## Documentation
 
-Start here:
+Two help sets. Installation and the product intro appear in both, in reading order. Releases is a separate site page. Studio help does not include OpenSpec, Agent Plan, or the CLI command reference.
 
-- [Docs home](/docs) — pick your path
-- [Installation](/docs/installation) — `npm install -g @authright/cli@latest`
-- [Getting started](/docs/getting-started)
-- [How commands work](/docs/how-commands-work)
+- [Choose a help set](/docs)
+- [CLI help](/cli-docs) — first loop, then handoff and reference
+- [Studio help](/studio-docs) — principles, workflow, Cases, models, proxy
+- [Installation](/cli-docs/installation) — `@authright/cli`, `@authright/studio`, or both
+- [Releases](/releases) — shared version history for CLI and Studio
 
-Then as needed:
+CLI, in order:
 
-- [Workflows](/docs/workflows) · [Examples](/docs/examples) · [OpenSpec](/docs/openspec) · [Agent Plan-mode](/docs/impl/agent-plan)
-- [Commands](/docs/commands) · [CLI](/docs/cli) · [Agents](/docs/agents)
-- [Overview](/docs/overview) · [Implementation](/docs/impl)
+- [Existing projects](/cli-docs/existing-projects) · [Workflows](/cli-docs/workflows) · [Examples](/cli-docs/examples)
+- Handoff: [Reviewing decisions](/cli-docs/reviewing-decisions) · [Implementation](/cli-docs/impl) · [OpenSpec](/cli-docs/openspec) · [Agent Plan-mode](/cli-docs/agent-plan)
+- Lookup: [How commands work](/cli-docs/how-commands-work) · [Commands](/cli-docs/commands) · [CLI](/cli-docs/cli) · [Agents](/cli-docs/agents)
+- [Overview](/cli-docs/overview)
 - [IAM Ontology](/ontology) — interactive graph of the shipped concept model
-- [FAQ](/docs/faq)
+- [FAQ](/cli-docs/faq)
 
 ## Quick start
 
 ```bash
 npm install -g @authright/cli@latest
-authright --version
-cd your-project
-authright init --tools cursor,codex,claude
-authright scan
+cd your-project && authright init
+# Studio-only, no CLI required:
+npm install -g @authright/studio@latest
+authright-studio
 ```
 
 Public loop: `scan` → pick `explore` or `change` → on that Auth Change record: `--analyze` → (explore: Agenda HITL | change: plan → `--set` → `--confirm-plan`) → `--ready` → `request-match` → `to-openspec` | `to-plan` → `review`. `doctor` is a peer command: it reads **application source** and writes a clear risk report at `.authright/diagnosis/report.md` (it does not redesign identity). You can run it before explore or change. `/auth:doc` is different—it writes a summary of **decisions** under `.authright/docs/`.
