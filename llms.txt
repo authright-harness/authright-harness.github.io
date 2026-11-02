@@ -2,39 +2,56 @@
 
 > Identity & Access Security Decision Layer for AI coding agents.
 
-AuthRight Harness is the decision layer between your codebase and implementation. Two surfaces share that layer. The CLI plus Cursor, Codex, or Claude Code runs the full loop. [AuthRight Studio](/studio-docs) is the local browser host: auto-plan Decide and an IAM source-of-truth document. Studio does not run explore, doctor, request-match, to-openspec, or to-plan.
+AuthRight Harness is the decision layer between your codebase and implementation. Two surfaces share that layer. Pick a help set first. The coding-agent path is **Cursor / Claude Code / Codex + AuthRight** (host slash/skills use the model). Bare terminal `authright scan` / Decide verbs are offline only—no hosted LLM. [AuthRight Studio](/studio-docs) is the local browser host: auto-plan Decide and an IAM source-of-truth document.
 
 ## Documentation
 
-Two help sets. Installation and the product intro appear in both, in reading order. Releases is a separate site page. Studio help does not include OpenSpec, Agent Plan, or the CLI command reference.
+Two help sets with separate install chapters. `what-it-is` may appear in both; CLI install and Studio install are not shared. Releases is a separate site page. Studio help does not include OpenSpec, Agent Plan, or the CLI command reference.
 
 - [Choose a help set](/docs)
-- [CLI help](/cli-docs) — first loop, then handoff and reference
+- [CLI help](/cli-docs) — first loop in the coding agent, then handoff and reference
 - [Studio help](/studio-docs) — principles, workflow, Cases, models, proxy
-- [Installation](/cli-docs/installation) — `@authright/cli`, `@authright/studio`, or both
+- [CLI Installation](/cli-docs/installation) — `@authright/cli`
+- [Studio Installation](/studio-docs/studio-installation) — `@authright/studio`
 - [Releases](/releases) — shared version history for CLI and Studio
 
 CLI, in order:
 
-- [Existing projects](/cli-docs/existing-projects) · [Workflows](/cli-docs/workflows) · [Examples](/cli-docs/examples)
-- Handoff: [Reviewing decisions](/cli-docs/reviewing-decisions) · [Implementation](/cli-docs/impl) · [OpenSpec](/cli-docs/openspec) · [Agent Plan-mode](/cli-docs/agent-plan)
-- Lookup: [How commands work](/cli-docs/how-commands-work) · [Commands](/cli-docs/commands) · [CLI](/cli-docs/cli) · [Agents](/cli-docs/agents)
-- [Overview](/cli-docs/overview)
+- Start: [First loop](/cli-docs) · [What it is](/cli-docs/what-it-is) · [CLI Installation](/cli-docs/installation)
+- On a repository: [Existing projects](/cli-docs/existing-projects) · [Workflows](/cli-docs/workflows) · [Examples](/cli-docs/examples)
+- After the lock: [Reviewing decisions](/cli-docs/reviewing-decisions) · [Implementation](/cli-docs/impl) · [OpenSpec](/cli-docs/openspec) · [Agent Plan-mode](/cli-docs/agent-plan)
+- Lookup: [Overview](/cli-docs/overview) · [How commands work](/cli-docs/how-commands-work) · [Commands](/cli-docs/commands) · [CLI](/cli-docs/cli) · [Agents](/cli-docs/agents)
 - [IAM Ontology](/ontology) — interactive graph of the shipped concept model
 - [FAQ](/cli-docs/faq)
 
-## Quick start
+## CLI quick start
 
 ```bash
 npm install -g @authright/cli@latest
 cd your-project && authright init
-# Studio-only, no CLI required:
+```
+
+Then in the coding agent (prefer change):
+
+```text
+/auth-scan
+/auth-change <need>          # or /auth-explore <need> (HITL)
+# multi-turn confirm / lock
+/auth-request-match AUTH-YYYY-NNNN
+/auth-to-plan AUTH-YYYY-NNNN # or /auth-to-openspec (needs OpenSpec)
+```
+
+`/auth:explore` and `/auth:change` are two Decide commands — pick `explore` or `change` (prefer change on first loop). Explore is interactive recommend-and-choose; change is auto-plan. `/auth:to-openspec` and `/auth:to-plan` are two handoff commands — pick one. Terminal twins and flags (`--analyze`, `--set`, `--confirm-plan`, `--ready`) are offline Look up under [CLI](/cli-docs/cli) — no hosted LLM; skills usually drive them from chat. `/auth:doc` writes a **decisions** summary under `.authright/docs/`. `doctor` reads **application source** and writes `.authright/diagnosis/report.md`.
+
+Product intent names use colon form (`/auth:scan`, `/auth:explore`, `/auth:change`, `/auth:request-match`, `/auth:to-openspec`, `/auth:to-plan`, `/auth:review`, `/auth:doc`, `/auth:doctor`). Cursor registers hyphen slashes from the filename (`/auth-scan`); Claude Code registers colon slashes from `.claude/commands/auth/` (`/auth:scan`); Codex skills use `$authright-scan`. `authright init` prints the installed hosts’ forms.
+
+## Studio quick start
+
+```bash
 npm install -g @authright/studio@latest
 authright-studio
 ```
 
-Public loop: `scan` → pick `explore` or `change` → on that Auth Change record: `--analyze` → (explore: Agenda HITL | change: plan → `--set` → `--confirm-plan`) → `--ready` → `request-match` → `to-openspec` | `to-plan` → `review`. `doctor` is a peer command: it reads **application source** and writes a clear risk report at `.authright/diagnosis/report.md` (it does not redesign identity). You can run it before explore or change. `/auth:doc` is different—it writes a summary of **decisions** under `.authright/docs/`.
+Then save a model under **Settings → Models**, start a Case, and run auto-plan Decide in the browser. See [Studio help](/studio-docs).
 
-`/auth:explore` and `/auth:change` are two Decide commands — pick one. Explore is interactive recommend-and-choose; change is auto-plan. `/auth:to-openspec` and `/auth:to-plan` are two handoff commands — pick one. Product intent names use colon form (`/auth:scan`, `/auth:explore`, `/auth:change`, `/auth:request-match`, `/auth:to-openspec`, `/auth:to-plan`, `/auth:review`, `/auth:doc`, `/auth:doctor`). Cursor registers hyphen slashes from the filename (`/auth-scan`); Claude Code registers colon slashes from `.claude/commands/auth/` (`/auth:scan`); Codex skills use `$authright-scan`. `authright init` prints the installed hosts’ forms.
-
-AuthRight Harness does not write application source. It prepares accepted identity-security decisions for OpenSpec or Agent Plan-mode handoff (pick one).
+AuthRight Harness does not write application source. On the CLI path it prepares accepted identity-security decisions for OpenSpec or Agent Plan-mode handoff (pick one).
